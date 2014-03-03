@@ -7,6 +7,9 @@ import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -29,13 +32,17 @@ public class FizzBuzzServiceTest {
 
     @Test
     public void validNumberShouldBePassedToGame() {
-        sut.generateReply(validNumber);
+        List<String> validNumberList = new ArrayList<String>();
+        validNumberList.add(validNumber);
+        sut.generateReply(validNumberList);
         verify(fizzBuzzGame, times(1)).generateReply(Matchers.anyInt());
     }
 
     @Test
     public void invalidNumberShouldNotBePassedToGame() {
-        sut.generateReply(invalidNumber);
+        List<String> invalidNumberList = new ArrayList<String>();
+        invalidNumberList.add(invalidNumber);
+        sut.generateReply(invalidNumberList);
         verify(fizzBuzzGame, times(0)).generateReply(Matchers.anyInt());
     }
 

@@ -12,6 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jackson.version>2.3.0</jackson.version>
         <javax-servlet.version>3.0.1</javax-servlet.version>
         <jetty-maven-plugin.version>8.1.9.v20130131</jetty-maven-plugin.version>
         <junit.version>4.11</junit.version>
@@ -20,6 +21,12 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
