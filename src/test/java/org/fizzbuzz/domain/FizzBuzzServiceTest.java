@@ -1,5 +1,7 @@
 package org.fizzbuzz.domain;
 
+import org.fizzbuzz.dto.FizzBuzzResponse;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -44,6 +46,16 @@ public class FizzBuzzServiceTest {
         invalidNumberList.add(invalidNumber);
         sut.generateReply(invalidNumberList);
         verify(fizzBuzzGame, times(0)).generateReply(Matchers.anyInt());
+    }
+
+    @Test
+    public void bothInvalidNumbersAndValidOnesShouldBeReportedInResponse(){
+        List<String> numbers = new ArrayList<String>();
+        numbers.add(invalidNumber);
+        numbers.add(validNumber);
+        FizzBuzzResponse fizzBuzzResponse = sut.generateReply(numbers);
+        Assert.assertEquals(1, fizzBuzzResponse.getFaultyNumbers().size());
+        Assert.assertEquals(1, fizzBuzzResponse.getOutput().size());
     }
 
 }
