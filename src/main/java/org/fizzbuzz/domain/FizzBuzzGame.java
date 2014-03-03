@@ -1,5 +1,8 @@
-package org.fizzbuzz;
+package org.fizzbuzz.domain;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class FizzBuzzGame {
 
     public String generateReply(int input) {

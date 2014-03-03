@@ -1,6 +1,7 @@
-package org.fizzbuzz;
+package org.fizzbuzz.domain;
 
-import junit.framework.Assert;
+import org.fizzbuzz.domain.FizzBuzzGame;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
