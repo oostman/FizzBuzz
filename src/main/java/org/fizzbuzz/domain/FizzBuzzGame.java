@@ -6,11 +6,11 @@ import org.springframework.stereotype.Component;
 public class FizzBuzzGame {
 
     public String generateReply(int input) {
-        if(isFizz(input) && isBuzz(input)){
+        if (isFizz(input) && isBuzz(input)) {
             return "Fizz Buzz";
-        } else if(isFizz(input)){
+        } else if (isFizz(input)) {
             return "Fizz";
-        } else if(isBuzz(input)){
+        } else if (isBuzz(input)) {
             return "Buzz";
         }
         return Integer.toString(input);

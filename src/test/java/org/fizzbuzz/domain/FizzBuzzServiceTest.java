@@ -49,7 +49,7 @@ public class FizzBuzzServiceTest {
     }
 
     @Test
-    public void bothInvalidNumbersAndValidOnesShouldBeReportedInResponse(){
+    public void bothInvalidNumbersAndValidOnesShouldBeReportedInResponse() {
         List<String> numbers = new ArrayList<String>();
         numbers.add(invalidNumber);
         numbers.add(validNumber);

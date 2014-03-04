@@ -4,7 +4,6 @@ import org.fizzbuzz.dto.FizzBuzzResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,10 +14,10 @@ public class FizzBuzzService {
 
     public FizzBuzzResponse generateReply(List<String> numbers) {
         FizzBuzzResponse fizzBuzzResponse = new FizzBuzzResponse();
-        for(String number : numbers){
+        for (String number : numbers) {
             if (isValidNumber(number)) {
                 fizzBuzzResponse.addResponse(generateReply(number));
-            }else{
+            } else {
                 fizzBuzzResponse.addFaultyNumber(number);
             }
         }

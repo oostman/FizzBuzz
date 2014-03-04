@@ -7,7 +7,7 @@ import java.util.List;
 public class FizzBuzzResponse implements Serializable {
 
     private List<String> output = new ArrayList<String>();
-    private List<String> faultyNumbers  = new ArrayList<String>();
+    private List<String> faultyNumbers = new ArrayList<String>();
 
     public void addResponse(String response) {
         this.output.add(response);

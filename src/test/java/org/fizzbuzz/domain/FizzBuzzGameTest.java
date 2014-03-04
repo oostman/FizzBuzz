@@ -1,6 +1,5 @@
 package org.fizzbuzz.domain;
 
-import org.fizzbuzz.domain.FizzBuzzGame;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,12 +13,12 @@ public class FizzBuzzGameTest {
     private int fizzBuzzNumber = 30;
 
     @Before
-    public void setup(){
+    public void setup() {
         sut = new FizzBuzzGame();
     }
 
     @Test
-    public void shouldReturnSameNumberWhenNotDividableBy3or5(){
+    public void shouldReturnSameNumberWhenNotDividableBy3or5() {
         String expected = Integer.toString(nonFizzBuzzNumber);
         String actual = sut.generateReply(nonFizzBuzzNumber);
 
@@ -27,27 +26,25 @@ public class FizzBuzzGameTest {
     }
 
     @Test
-    public void shouldReturnFizzWhenDividableBy3(){
+    public void shouldReturnFizzWhenDividableBy3() {
         String actual = sut.generateReply(fizzNumber);
 
         Assert.assertEquals("Fizz", actual);
     }
 
     @Test
-    public void shouldReturnBuzzWhenDividableBy5(){
+    public void shouldReturnBuzzWhenDividableBy5() {
         String actual = sut.generateReply(buzzNumber);
 
         Assert.assertEquals("Buzz", actual);
     }
 
     @Test
-    public void shouldReturnFizzBuzzWhenDividableBy3and5(){
+    public void shouldReturnFizzBuzzWhenDividableBy3and5() {
         String actual = sut.generateReply(fizzBuzzNumber);
 
         Assert.assertEquals("Fizz Buzz", actual);
     }
-
-
 
 
 }

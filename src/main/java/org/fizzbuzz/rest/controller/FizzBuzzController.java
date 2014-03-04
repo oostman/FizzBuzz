@@ -18,12 +18,16 @@ public class FizzBuzzController {
     FizzBuzzService fizzBuzzService;
 
     @RequestMapping("/api/play")
-    public @ResponseBody FizzBuzzResponse playSingleSimpleNumber(@RequestParam(value = "numbers", required = true) List<String> numbers) {
+    public
+    @ResponseBody
+    FizzBuzzResponse playSingleSimpleNumber(@RequestParam(value = "numbers", required = true) List<String> numbers) {
         return fizzBuzzService.generateReply(numbers);
     }
 
     @RequestMapping("/api/play/{numbers}")
-    public @ResponseBody FizzBuzzResponse playSeveralSimpleNumber(@PathVariable List<String> numbers) {
+    public
+    @ResponseBody
+    FizzBuzzResponse playSeveralSimpleNumber(@PathVariable List<String> numbers) {
         return fizzBuzzService.generateReply(numbers);
     }
 }

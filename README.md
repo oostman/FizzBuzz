@@ -1,1 +1,1 @@
-A simple implementation of the childrens game Fizz buzz
+A simple implementation of the children's game Fizz buzz
