@@ -17,15 +17,16 @@ public class WebAppInitializer implements WebApplicationInitializer {
         WebApplicationContext rootContext = createRootContext(servletContext);
 
         configureSpringMvc(servletContext, rootContext);
+        configureSpringSecurity(servletContext, rootContext);
     }
 
     private WebApplicationContext createRootContext(ServletContext servletContext) {
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-        rootContext.register(CoreConfig.class);
+        rootContext.register(CoreConfig.class, SecurityConfig.class);
         rootContext.refresh();
 
         servletContext.addListener(new ContextLoaderListener(rootContext));
-        //servletContext.setInitParameter("defaultHtmlEscape", "true");
+        servletContext.setInitParameter("defaultHtmlEscape", "true");
 
         return rootContext;
     }
@@ -45,5 +46,11 @@ public class WebAppInitializer implements WebApplicationInitializer {
             throw new IllegalStateException(
                     "'webservice' cannot be mapped to '/'");
         }
+    }
+
+    private void configureSpringSecurity(ServletContext servletContext, WebApplicationContext rootContext) {
+        FilterRegistration.Dynamic springSecurity = servletContext.addFilter("springSecurityFilterChain",
+                new DelegatingFilterProxy("springSecurityFilterChain", rootContext));
+        springSecurity.addMappingForUrlPatterns(null, true, "/*");
     }
 }
